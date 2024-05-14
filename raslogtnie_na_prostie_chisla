@@ -1,0 +1,19 @@
+inp = open('input.txt', 'r')
+out = open('output.txt', 'w')
+
+n = int(inp.readline())
+
+def allDivs( n ):
+    divs = []
+    cnt = 0
+    for d in range(2, int(n ** 0.5) + 1):
+        if n % d == 0:
+            divs.append( d )
+            cnt += 1
+    if cnt == 0:
+        divs.append(n)
+    answer = '*'.join(map(str, divs))
+    return answer
+print(allDivs( n ))
+
+out.write(allDivs( n ))
